@@ -1,0 +1,335 @@
+curl -X POST -H "Content-Type: application/json" -d '{
+  "persistent_menu":[
+    {
+      "locale":"default",
+      "composer_input_disabled": false,
+      "call_to_actions":[
+        {
+          "title":"Create or Delete",
+          "type":"nested",
+          "call_to_actions":[
+            {
+              "title": "Set day and time",
+              "type": "postback",
+              "payload": "reminder-save"
+            },
+            {
+              "title": "Delete reminder",
+              "type": "postback",
+              "payload": "reminder-delete"
+            }
+          ]
+        },
+        {
+         "title": "Show reminders",
+         "type": "postback",
+         "payload": "reminder-show"
+        }
+      ]
+    }
+  ]
+}' "https://graph.facebook.com/v2.6/me/messenger_profile?access_token=EAAHLOIwrujEBAJeNUBq3SN1CldjVaewwhZCYZAIjF8g4Vv49PlBAcSTdRZAvR629uCYCDwmmXkmKBHGPLuBL7sZAb0ugysL8QiOQS3zSdqYpFh0ZCaw59ksexYBjuqcsZBDNMPOOqZCKEUU8sg3kBUbFGag82Q11TTZAbFjlk1zmmwBUdouCoGau"
+
+
+curl -X POST -H "Content-Type: application/json" -d '{
+  "persistent_menu":[
+    {
+      "locale":"default",
+      "composer_input_disabled": false,
+      "call_to_actions":[
+        {
+            "type": "postback",
+            "title": "Create reminder",
+            "payload": "reminder-start"
+        }
+      ]
+    },
+    {
+      "locale":"second",    
+      "composer_input_disabled": false,
+      "call_to_actions":[
+        {
+            "type": "postback",
+            "title": "Set day and time",
+            "payload": "reminder-save"
+        },
+        {
+            "type": "postback",
+            "title": "Show all reminders",
+            "payload": "reminder-view-all"
+        }
+      ]
+    }
+  ]
+}' "https://graph.facebook.com/v2.6/me/messenger_profile?access_token=EAAHLOIwrujEBAJeNUBq3SN1CldjVaewwhZCYZAIjF8g4Vv49PlBAcSTdRZAvR629uCYCDwmmXkmKBHGPLuBL7sZAb0ugysL8QiOQS3zSdqYpFh0ZCaw59ksexYBjuqcsZBDNMPOOqZCKEUU8sg3kBUbFGag82Q11TTZAbFjlk1zmmwBUdouCoGau"
+
+
+curl -X POST -H "Content-Type: application/json" -d '{
+  "recipient":{
+    "id":"2362126073878997"
+  },
+  "message":{
+    "attachment":{
+      "type":"template",
+      "payload":{
+        "template_type":"button",
+        "text":"Try the URL button!",
+        "buttons":[
+          {
+            "type":"web_url",
+            "url":"https://www.messenger.com/",
+            "title":"URL Button",
+            "webview_height_ratio": "full"
+          }
+        ]
+      }
+    }
+  }
+}' "https://graph.facebook.com/v2.6/me/messages?access_token=EAAHLOIwrujEBAJeNUBq3SN1CldjVaewwhZCYZAIjF8g4Vv49PlBAcSTdRZAvR629uCYCDwmmXkmKBHGPLuBL7sZAb0ugysL8QiOQS3zSdqYpFh0ZCaw59ksexYBjuqcsZBDNMPOOqZCKEUU8sg3kBUbFGag82Q11TTZAbFjlk1zmmwBUdouCoGau"
+
+curl -X POST -H "Content-Type: application/json" -d '{
+  "recipient": { 
+    "id": "<PSID>"
+  },
+  "message":{
+    ...
+  },
+  "messaging_type": "MESSAGE_TAG",
+  "tag": "ACCOUNT_UPDATE"
+      
+}' "https://graph.facebook.com/v4.0/me/messages?access_token=EAAHLOIwrujEBAJeNUBq3SN1CldjVaewwhZCYZAIjF8g4Vv49PlBAcSTdRZAvR629uCYCDwmmXkmKBHGPLuBL7sZAb0ugysL8QiOQS3zSdqYpFh0ZCaw59ksexYBjuqcsZBDNMPOOqZCKEUU8sg3kBUbFGag82Q11TTZAbFjlk1zmmwBUdouCoGau"
+      
+
+curl -X POST -H "Content-Type: application/json" -d '{
+"persistent_menu": [
+        {
+            "locale": "default",
+            "composer_input_disabled": false,
+            "call_to_actions": [
+                {
+                    "type": "postback",
+                    "title": "Create reminder",
+                    "payload": "reminder-start"
+                },
+                {
+                    "type": "postback",
+                    "title": "Set date and time",
+                    "payload": "reminder-save"
+                },
+                {
+                    "type": "postback",
+                    "title": "Show all reminders ",
+                    "payload": "reminder-view-all"
+                }
+                },
+                {
+                    "type": "postback",
+                    "title": "Delete ",
+                    "payload": " reminder-delete"
+                }
+            ]
+        }
+    }
+]
+}' "https://graph.facebook.com/v2.6/me/messenger_profile?access_token=EAAHLOIwrujEBAJeNUBq3SN1CldjVaewwhZCYZAIjF8g4Vv49PlBAcSTdRZAvR629uCYCDwmmXkmKBHGPLuBL7sZAb0ugysL8QiOQS3zSdqYpFh0ZCaw59ksexYBjuqcsZBDNMPOOqZCKEUU8sg3kBUbFGag82Q11TTZAbFjlk1zmmwBUdouCoGau"
+
+curl -X DELETE -H "Content-Type: application/json" -d '{
+  "fields": [
+    "persistent_menu"
+  ]
+}' "https://graph.facebook.com/v4.0/me/messenger_profile?access_token=EAAHLOIwrujEBAJeNUBq3SN1CldjVaewwhZCYZAIjF8g4Vv49PlBAcSTdRZAvR629uCYCDwmmXkmKBHGPLuBL7sZAb0ugysL8QiOQS3zSdqYpFh0ZCaw59ksexYBjuqcsZBDNMPOOqZCKEUU8sg3kBUbFGag82Q11TTZAbFjlk1zmmwBUdouCoGau"
+
+curl -X POST -H "Content-Type: application/json" -d '{ 
+  "get_started":{
+    "payload":"reminder-start"
+  }
+}' "https://graph.facebook.com/v2.6/me/messenger_profile?access_token=EAAHLOIwrujEBAJeNUBq3SN1CldjVaewwhZCYZAIjF8g4Vv49PlBAcSTdRZAvR629uCYCDwmmXkmKBHGPLuBL7sZAb0ugysL8QiOQS3zSdqYpFh0ZCaw59ksexYBjuqcsZBDNMPOOqZCKEUU8sg3kBUbFGag82Q11TTZAbFjlk1zmmwBUdouCoGau"
+
+curl -X GET "https://graph.facebook.com/v4.0/me/messenger_profile?fields=persistent_menu&access_token=EAAHLOIwrujEBAJeNUBq3SN1CldjVaewwhZCYZAIjF8g4Vv49PlBAcSTdRZAvR629uCYCDwmmXkmKBHGPLuBL7sZAb0ugysL8QiOQS3zSdqYpFh0ZCaw59ksexYBjuqcsZBDNMPOOqZCKEUU8sg3kBUbFGag82Q11TTZAbFjlk1zmmwBUdouCoGau"
+
+curl -X POST -H "Content-Type: application/json" -d '{
+"persistent_menu": [
+        {
+            "locale": "default",
+            "composer_input_disabled": false,
+            "call_to_actions": [
+                {
+                    "type": "postback",
+                    "title": "Create reminder",
+                    "payload": "reminder-start"
+                },
+                {
+                    "type": "postback",
+                    "title": "Set date and time",
+                    "payload": "reminder-save"
+                },
+                {
+                    "type": "postback",
+                    "title": "Show all reminders ",
+                    "payload": "reminder-view-all"
+                }
+                }
+            ]
+        }
+    }
+]
+}' "https://graph.facebook.com/v2.6/me/messenger_profile?access_token=EAAHLOIwrujEBAJeNUBq3SN1CldjVaewwhZCYZAIjF8g4Vv49PlBAcSTdRZAvR629uCYCDwmmXkmKBHGPLuBL7sZAb0ugysL8QiOQS3zSdqYpFh0ZCaw59ksexYBjuqcsZBDNMPOOqZCKEUU8sg3kBUbFGag82Q11TTZAbFjlk1zmmwBUdouCoGau"
+
+curl -X POST -H "Content-Type: application/json" -d '{
+  persistent_menu:[
+    {
+        "locale": "default",
+        "composer_input_disabled": false,
+        "call_to_actions": [
+            {
+                "type": "postback",
+                "title": "Create reminder",
+                "payload": "reminder-start"
+            },
+            {
+                "type": "postback",
+                "title": "Set date and time",
+                "payload": "reminder-save"
+            },
+            {
+                "type": "postback",
+                "title": "Show all reminders ",
+                "payload": "reminder-view-all"
+            }
+            },
+            {
+                "type": "postback",
+                "title": "Delete reminders ",
+                "payload": "reminder-delete"
+            }
+        ]
+    }
+  ]
+}' "https://graph.facebook.com/v2.6/me/messenger_profile?access_token=EAAHLOIwrujEBAJeNUBq3SN1CldjVaewwhZCYZAIjF8g4Vv49PlBAcSTdRZAvR629uCYCDwmmXkmKBHGPLuBL7sZAb0ugysL8QiOQS3zSdqYpFh0ZCaw59ksexYBjuqcsZBDNMPOOqZCKEUU8sg3kBUbFGag82Q11TTZAbFjlk1zmmwBUdouCoGau"
+
+curl -X POST -H "Content-Type: application/json" -d '{
+    "recipient": {
+        "id": "{{PSID}}"
+    },
+    "message": {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "list",
+                "top_element_style": "compact",
+                "elements": [{
+                        "title": "Hello 1",
+                        "subtitle": "Subtitle 1",
+                        "buttons": [{
+                            "title": "View",
+                            "type": "web_url",
+                            "url": "https://www.medium.com/",
+                            "messenger_extensions": "false",
+                            "webview_height_ratio": "full"
+                        }],
+                        "default_action": {
+                            "type": "web_url",
+                            "url": "https://www.medium.com/",
+                            "messenger_extensions": "false",
+                            "webview_height_ratio": "full"
+                        }
+                    },
+                    {
+                        "title": "Hello 2",
+                        "subtitle": "Subtitle 2",
+                        "image_url": "https://cdn-images-1.medium.com/1*Vkf6A8Mb0wBoL3Fw1u0paA.jpeg",
+                        "buttons": [{
+                            "title": "View",
+                            "type": "web_url",
+                            "url": "https://www.medium.com/",
+                            "messenger_extensions": "false",
+                            "webview_height_ratio": "full"
+                        }],
+                        "default_action": {
+                            "type": "web_url",
+                            "url": "https://www.medium.com/",
+                            "messenger_extensions": "false",
+                            "webview_height_ratio": "full"
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}' "https://graph.facebook.com/v2.6/me/messages?access_token=EAAHLOIwrujEBAJeNUBq3SN1CldjVaewwhZCYZAIjF8g4Vv49PlBAcSTdRZAvR629uCYCDwmmXkmKBHGPLuBL7sZAb0ugysL8QiOQS3zSdqYpFh0ZCaw59ksexYBjuqcsZBDNMPOOqZCKEUU8sg3kBUbFGag82Q11TTZAbFjlk1zmmwBUdouCoGau"
+
+curl -X POST -H "Content-Type: application/json" -d '{
+  "recipient":{
+    "id":"2362126073878997"
+  },
+  "message":{
+    "attachment":{
+      "type":"template",
+      "payload":{
+        "template_type":"generic",
+        "elements":[
+           {
+            "title":"Welcome!",
+            "image_url":"https://cdn-images-1.medium.com/1*Vkf6A8Mb0wBoL3Fw1u0paA.jpeg",
+            "subtitle":"We have the right hat for everyone.",
+            "default_action": {
+              "type": "web_url",
+              "url": "https://www.medium.com/",
+              "messenger_extensions": false,
+              "webview_height_ratio": "tall",
+              "fallback_url": "https://www.medium.com/"
+            },
+            "buttons":[
+              {
+                "type":"postback",
+                "title":"Start Chatting",
+                "payload":"DEVELOPER_DEFINED_PAYLOAD"
+              },{
+                "type":"postback",
+                "title":"Start Chatting",
+                "payload":"DEVELOPER_DEFINED_PAYLOAD"
+              }              
+            ]      
+          }
+        ]
+      }
+    }
+  }
+}' "https://graph.facebook.com/v2.6/me/messages?access_token=EAAHLOIwrujEBAJeNUBq3SN1CldjVaewwhZCYZAIjF8g4Vv49PlBAcSTdRZAvR629uCYCDwmmXkmKBHGPLuBL7sZAb0ugysL8QiOQS3zSdqYpFh0ZCaw59ksexYBjuqcsZBDNMPOOqZCKEUU8sg3kBUbFGag82Q11TTZAbFjlk1zmmwBUdouCoGau"
+
+curl -X POST -H "Content-Type: application/json" -d '{
+  "recipient":{
+    "id":"2362126073878997"
+  },
+  "message":{
+    "attachment":{
+      "type":"template",
+      "payload":{
+        "template_type":"generic",
+        "elements":[
+           {
+            "title":"You have reminder!",
+            "image_url":"https://nifa.aero/wp-content/uploads/reminder-1024x638.gif",
+            "subtitle":"We have the right hat for everyone.",
+            "default_action": {
+              "type": "web_url",
+              "url": "https://www.google.com.ua/?hl=ru",
+              "webview_height_ratio": "tall",
+            },
+            "buttons":[
+              {
+                "type":"postback",
+                "payload":"DEVELOPER_DEFINED_PAYLOAD",
+                "title":"accept"
+              },{
+                "type":"postback",
+                "title":"snooze",
+                "payload":"DEVELOPER_DEFINED_PAYLOAD"
+              }              
+            ]      
+          }
+        ]
+      }
+    }
+  }
+}' "https://graph.facebook.com/v2.6/me/messages?access_token=EAAHLOIwrujEBAJeNUBq3SN1CldjVaewwhZCYZAIjF8g4Vv49PlBAcSTdRZAvR629uCYCDwmmXkmKBHGPLuBL7sZAb0ugysL8QiOQS3zSdqYpFh0ZCaw59ksexYBjuqcsZBDNMPOOqZCKEUU8sg3kBUbFGag82Q11TTZAbFjlk1zmmwBUdouCoGau"
